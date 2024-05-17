@@ -28,9 +28,11 @@ model_path = "MNIST_model.keras"
 model = get_model(model_path)
 # set the model in inference mode
 model.trainable=False
-
+#counts the number of times a client ip address visit
 request_counter = Counter("Client_IP_count", "Total number of requests", ["client_ip"])
+#Calculates the run time of API
 inference_time_gauge = Gauge("API_runtime", "Inference time in seconds")
+#processing time of the text, per character calculation
 processing_time_per_char_gauge = Gauge("processing_time_per_char_microseconds", "Processing time per character in microseconds")
 
 # get API network I/O bytes
